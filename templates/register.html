@@ -10,7 +10,7 @@
 
       <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-      <script src="../scripts/quote.js"></script>
+      <script src="../scripts/register.js"></script>
 
       <title>Finance: Register</title>
     </head>
@@ -35,21 +35,21 @@
           </nav>
 
           <main>
-            <form onsubmit="return registerchecker()" method="post">
-              <fieldset>
+            <form onsubmit="return registerChecker();" method="post">
                 <div class="form-group">
                   <input autocomplete="off" autofocus class="form-control" id="username" name="username" placeholder="Username" type="text" required/>
+                  <p id="usedUsername"></p>
                 </div>
                 <div class="form-group">
-                  <input class="form-control" name="password" placeholder="Password" type="password" required/>
+                  <input class="form-control" id="password" pattern=".{8,12}" required title="8 to 12 characters" placeholder="Password" type="password" required/>
                 </div>
                 <div class="form-group">
-                  <input class="form-control" name="passwordagain" placeholder="Password Again" type="password" required/>
+                  <input class="form-control" id="passwordagain" placeholder="Password Again" type="password" required/>
+                  <p id="unmatchedPassword" class="error"></p>
                 </div>
                 <div class="form-group">
                   <button class="btn btn-default" type="submit">Register</button>
                 </div>
-              </fieldset>
             </form>
           </main>
 
