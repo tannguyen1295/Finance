@@ -1,0 +1,25 @@
+.container
+{
+    /* center contents */
+    margin: auto;
+    text-align: center
+}
+
+.error
+{
+    text-align: center;
+    font-weight: lighter;
+    font-style: italic;
+    color: red;
+}
+
+.form-control
+{
+  margin: auto;
+  width: 15%;
+}
+
+.table
+{
+  text-align: left;
+}
