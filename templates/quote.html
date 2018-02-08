@@ -8,7 +8,7 @@
 
       <link href="../static/styles.css" rel="stylesheet"/>
 
-      <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+      <script src="https://code.jquery.com/jquery-latest.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
       <script src="../scripts/quote.js"></script>
 
@@ -36,15 +36,13 @@
 
           <main>
             <div>
-              <form onsubmit="return quote()" method="post">
-                <fieldset>
+              <form onsubmit="quote(); return false;">
                   <div class="form-group">
-                    <input class="form-control" id="quote" name="quote" placeholder="Quote" type="text" required/>
+                    <input class="form-control" id="symbol" name="field" placeholder="Symbol" type="text" required/>
                   </div>
                   <div class="form-group">
                     <button class="btn btn-default" type="submit">Search</button>
                   </div>
-                </fieldset>
               </form>
             </div>
           </main>
@@ -57,7 +55,7 @@
                   <th>Price</th>
                 </tr>
               </thead>
-              <tbody id="result">
+              <tbody id="quote">
               </tbody>
             </table>
           </fieldset>

@@ -1,28 +1,23 @@
 function quote(){
-  var name = $('#quote').val();
-  var text = <tr><td>;
+  var name = $('#symbol').val();
+  var text = "<tr><td>";
 
-  if (name = str.includes(","))
-    return false;
-
-  if (name = str.starsWith("^"))
-    return false;
-
-  url = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=" + name + "&apikey=VD0YZ2AU20ZC6XHF";
+  url = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" + name + "&apikey=VD0YZ2AU20ZC6XHF";
 
   $.getJSON(url, function(data){
     if (data.length == 1){
-      text = "aaa";
-      $('#result').html(text);
-      return false;
+      $('#quote').html("Error ocurred!");
     }
 
-    for (var i in data["Time Series (Daily)"]){
-      var value = i["4. close"];
+    var daydata = data["Time Series (Daily)"];
+    for (var key in daydata){
+      var value = parseInt(daydata[key]["4. close"]);
       break;
     }
-    text += name + "</td><td>" + value + "</td></tr>";
-    $('#result').html(text);
+
+    text += name.toUpperCase() + "</td><td>$" + value.toFixed(2) + "</td></tr>";
+
+    $('#quote').html(text);
   })
-  return true;
+
 }
